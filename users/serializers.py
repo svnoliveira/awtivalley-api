@@ -34,6 +34,7 @@ class UserSerializer(serializers.ModelSerializer):
             "cursos",
             "licenca_medica",
             "registros_de_ponto",
+            "ativo",
         ]
         depth = 1
         extra_kwargs = {

@@ -15,6 +15,7 @@ class User(AbstractUser):
     ultima_promocao = models.DateField(null=True, blank=True)
     observacoes = models.TextField(blank=True)
     funcoes_extra = models.TextField(blank=True)
+    ativo = models.BooleanField(default=True)
     especialidades = models.ManyToManyField(
         "especialidades.Especialidade", related_name="users"
     )
