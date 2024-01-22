@@ -8,13 +8,13 @@ class User(AbstractUser):
     # password => senha
     nome = models.CharField(max_length=127)
     discord_id = models.CharField(max_length=50, unique=True)
-    cargo = models.CharField(max_length=127)
-    efetivacao = models.DateField()
-    funcao = models.CharField(max_length=127)
-    setor = models.CharField(max_length=127)
-    ultima_promocao = models.DateField()
-    observacoes = models.TextField()
-    funcoes_extra = models.TextField()
+    cargo = models.CharField(max_length=127, blank=True)
+    efetivacao = models.DateField(null=True, blank=True)
+    funcao = models.CharField(max_length=127, blank=True)
+    setor = models.CharField(max_length=127, blank=True)
+    ultima_promocao = models.DateField(null=True, blank=True)
+    observacoes = models.TextField(blank=True)
+    funcoes_extra = models.TextField(blank=True)
     especialidades = models.ManyToManyField(
         "especialidades.Especialidade", related_name="users"
     )
