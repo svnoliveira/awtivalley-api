@@ -36,11 +36,11 @@ class UserUnlinkUpdateView(UpdateAPIView):
     lookup_url_kwarg = "user_id"
 
     def perform_update(self, serializer):
-        if self.kwargs["curso_id"]:
+        if self.kwargs.get("curso_id"):
             curso = get_object_or_404(Curso, pk=self.kwargs["curso_id"])
         else:
             curso = False
-        if self.kwargs["especialidade_id"]:
+        if self.kwargs.get("especialidade_id"):
             especialidade = get_object_or_404(
                 Especialidade, pk=self.kwargs["especialidade_id"]
             )

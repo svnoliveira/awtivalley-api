@@ -74,11 +74,11 @@ class UserSerializer(serializers.ModelSerializer):
             instance.licenca_medica = licenca_medica
         if validated_data.get("curso"):
             curso = validated_data.pop("curso")
-            if curso in instance.cursos:
+            if curso in instance.cursos.all():
                 instance.cursos.remove(curso)
         elif validated_data.get("especialidade"):
             especialidade = validated_data.pop("especialidade")
-            if especialidade in instance.especialidades:
+            if especialidade in instance.especialidades.all():
                 instance.especialidades.remove(especialidade)
         else:
             for key, value in validated_data.items():

@@ -15,7 +15,7 @@ urlpatterns = [
         name='token_obtain_pair'
     ),
     path(
-        "users/cursos/desvincular/<int:user_id>/<int:curso_id>",
+        "users/cursos/desvincular/<int:user_id>/<int:curso_id>/",
         UserUnlinkUpdateView.as_view()
     ),
     path(
