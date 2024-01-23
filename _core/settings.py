@@ -46,7 +46,7 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     "rest_framework",
-    # "drf_spectacular",
+    "drf_spectacular",
 ]
 
 MY_APPS = [
@@ -151,9 +151,18 @@ AUTH_USER_MODEL = 'users.User'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ),
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(hours=10)
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'AWTI VALLEY - API',
+    'DESCRIPTION': 'API para manipulação de dados do banco de dados do website awtivalley',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
 }
