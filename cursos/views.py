@@ -8,11 +8,12 @@ from rest_framework.generics import (
     RetrieveUpdateDestroyAPIView,
 )
 from rest_framework_simplejwt.authentication import JWTAuthentication
+from rest_framework.permissions import IsAdminUser, IsAuthenticated
 
 
 class CursoListCreateView(ListCreateAPIView):
     authentication_classes = [JWTAuthentication]
-    # permission_classes = [IsSuperUserOrNotSafeMethod]
+    permission_classes = [IsAuthenticated, IsAdminUser]
 
     serializer_class = CursoSerializer
     queryset = Curso.objects.all()
@@ -20,7 +21,7 @@ class CursoListCreateView(ListCreateAPIView):
 
 class CursoRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
     authentication_classes = [JWTAuthentication]
-    # permission_classes = [IsSuperUserOrOwnsAccount]
+    permission_classes = [IsAuthenticated, IsAdminUser]
 
     serializer_class = CursoSerializer
     queryset = Curso.objects.all()

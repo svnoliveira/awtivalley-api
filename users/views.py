@@ -1,4 +1,6 @@
 from django.shortcuts import get_object_or_404
+
+from _core.permissions import IsSuperUserOrOwnsAccount
 from .serializers import UserSerializer
 from .models import User
 from cursos.models import Curso
@@ -13,7 +15,6 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 
 class UserListCreateView(ListCreateAPIView):
     authentication_classes = [JWTAuthentication]
-    # permission_classes = [IsSuperUserOrNotSafeMethod]
 
     serializer_class = UserSerializer
     queryset = User.objects.all()
@@ -21,7 +22,7 @@ class UserListCreateView(ListCreateAPIView):
 
 class UserRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
     authentication_classes = [JWTAuthentication]
-    # permission_classes = [IsSuperUserOrOwnsAccount]
+    permission_classes = [IsSuperUserOrOwnsAccount]
 
     serializer_class = UserSerializer
     queryset = User.objects.all()
@@ -30,6 +31,7 @@ class UserRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
 
 class UserUnlinkUpdateView(UpdateAPIView):
     authentication_classes = [JWTAuthentication]
+    permission_classes = [IsSuperUserOrOwnsAccount]
 
     serializer_class = UserSerializer
     queryset = User.objects.all()

@@ -1,4 +1,6 @@
 from django.shortcuts import get_object_or_404
+
+from _core.permissions import IsSuperUserOrOwnsAccount
 from .serializers import RegistroSerializer
 from django.db.models.query import QuerySet
 from .models import Registro_de_ponto
@@ -20,7 +22,6 @@ class RegistroListView(ListAPIView):
 
 class RegistroListCreateView(ListCreateAPIView):
     authentication_classes = [JWTAuthentication]
-    # permission_classes = [IsSuperUserOrNotSafeMethod]
 
     serializer_class = RegistroSerializer
     queryset = Registro_de_ponto.objects.all()
@@ -46,7 +47,7 @@ class RegistroListCreateView(ListCreateAPIView):
 
 class RegistroRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
     authentication_classes = [JWTAuthentication]
-    # permission_classes = [IsSuperUserOrOwnsAccount]
+    permission_classes = [IsSuperUserOrOwnsAccount]
 
     serializer_class = RegistroSerializer
     queryset = Registro_de_ponto.objects.all()
