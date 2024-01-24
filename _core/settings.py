@@ -187,4 +187,5 @@ SPECTACULAR_SETTINGS = {
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
+    'https://cma-valley-bypkgy1jo-tiago-zamperlini-succis-projects.vercel.app'
 ]
