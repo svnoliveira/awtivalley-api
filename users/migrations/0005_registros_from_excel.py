@@ -22,8 +22,10 @@ def create_default_data(apps, schema_editor):
         user = User.objects.filter(username=username).first()
         if user:
             registro = {
-                "entrada": getDateTime(entry['inicio'], entry['entrada']),
-                "saida": getDateTime(entry['termino'], entry['saida']),
+                "entrada": getDateTime(
+                    entry['inicio'], entry['entrada'])+"-03:00",
+                "saida": getDateTime(
+                    entry['termino'], entry['saida'])+"-03:00",
                 "horas": f"{entry['horas']}",
                 "user": user,
             }
