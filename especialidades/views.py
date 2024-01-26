@@ -8,12 +8,12 @@ from rest_framework.generics import (
     RetrieveUpdateDestroyAPIView,
 )
 from rest_framework_simplejwt.authentication import JWTAuthentication
-from rest_framework.permissions import IsAdminUser, IsAuthenticated
+from rest_framework.permissions import IsAuthenticated
 
 
 class EspecialidadeListCreateView(ListCreateAPIView):
     authentication_classes = [JWTAuthentication]
-    permission_classes = [IsAuthenticated, IsAdminUser]
+    permission_classes = [IsAuthenticated]
 
     serializer_class = EspecialidadeSerializer
     queryset = Especialidade.objects.all()
@@ -21,7 +21,7 @@ class EspecialidadeListCreateView(ListCreateAPIView):
 
 class EspecialidadeRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
     authentication_classes = [JWTAuthentication]
-    permission_classes = [IsAuthenticated, IsAdminUser]
+    permission_classes = [IsAuthenticated]
 
     serializer_class = EspecialidadeSerializer
     queryset = Especialidade.objects.all()
