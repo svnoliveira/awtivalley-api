@@ -14,7 +14,9 @@ def create_default_data(apps, schema_editor):
         licenca_data = entry.pop("licenca_medica")
         licenca_medica = Licenca_medica(**licenca_data)
         licenca_medica.save()
-        user = User.objects.create_user(**entry, licenca_medica=licenca_medica)
+        user = User.objects.create_superuser(
+            **entry, licenca_medica=licenca_medica
+        )
 
         for especialidade in especialidades:
             if especialidade == "-":
