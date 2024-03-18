@@ -188,5 +188,11 @@ SPECTACULAR_SETTINGS = {
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'https://cma-valley.vercel.app',
-    'https://awtivalley-test.vercel.app'
+    'https://awtivalley-test.vercel.app',
+    'http://centromedicoawti.com.br',
+    'http://valley.centromedicoawti.com.br/',
+    'http://capital.centromedicoawti.com.br',
+    'http://apicapital.centromedicoawti.com.br',
+    'http://apivalley.centromedicoawti.com.br',
+    'http://191.252.185.16/'
 ]
