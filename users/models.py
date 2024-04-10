@@ -20,7 +20,9 @@ class User(AbstractUser):
         "especialidades.Especialidade", related_name="users"
     )
     cursos = models.ManyToManyField(
-        "cursos.Curso", related_name="users"
+        "cursos.Curso",
+        through="user_curso.UserCurso",
+        related_name="users"
     )
     licenca_medica = models.OneToOneField(
         "licencas_medicas.Licenca_medica", on_delete=models.CASCADE

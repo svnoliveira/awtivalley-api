@@ -33,13 +33,13 @@ SECRET_KEY = os.getenv("SECRET_KEY", get_random_secret_key())
 DEBUG = True
 
 ALLOWED_HOSTS = [
-	'127.0.0.1',
-	'191.252.185.16',
-	'localhost',
-	'capital.centromedicoawti.com.br',
-	'centromedicoawti.com.br',
-	'valley.centromedicoawti.com.br',
-	'apicapital.centromedicoawti.com.br'
+    '127.0.0.1',
+    '191.252.185.16',
+    'localhost',
+    'capital.centromedicoawti.com.br',
+    'centromedicoawti.com.br',
+    'valley.centromedicoawti.com.br',
+    'apicapital.centromedicoawti.com.br'
 ]
 RENDER_EXTERNAL_HOSTNAME = os.getenv("RENDER_EXTERNAL_HOSTNAME")
 if RENDER_EXTERNAL_HOSTNAME:
@@ -68,6 +68,7 @@ MY_APPS = [
     "especialidades",
     "licencas_medicas",
     "registros_de_ponto",
+    "user_curso",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + MY_APPS
@@ -194,10 +195,10 @@ SPECTACULAR_SETTINGS = {
 }
 
 CORS_ALLOWED_ORIGINS = [
-	'http://localhost:3000',
-	'http://127.0.0.1:3000',
-	'https://cma-valley.vercel.app',
-	'https://awtivalley-test.vercel.app',
-	'http://centromedicoawti.com.br',
-	'http://capital.centromedicoawti.com.br',
+    'http://localhost:3000',
+    'http://127.0.0.1:3000',
+    'https://cma-valley.vercel.app',
+    'https://awtivalley-test.vercel.app',
+    'http://centromedicoawti.com.br',
+    'http://capital.centromedicoawti.com.br',
 ]

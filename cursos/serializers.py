@@ -10,6 +10,7 @@ class CursoSerializer(serializers.ModelSerializer):
         fields = [
             "id",
             "nome",
+            "validade",
             "users",
         ]
         extra_kwargs = {
