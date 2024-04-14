@@ -8,3 +8,4 @@ class UserCurso(models.Model):
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
     inicio = models.DateField(null=True)
     vencimento = models.DateField(null=True)
+    certificado = models.CharField(blank=True, default="")
