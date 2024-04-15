@@ -14,7 +14,7 @@ def create_backup_data(apps, schema_editor):
         users = entry.pop("users")
         entry.pop("id")
         entry["validade"] = 0
-        curso = Curso.objects.create(**entry)
+        curso, created = Curso.objects.get_or_create(**entry)
         curso.save()
         for userID in users:
             try:
