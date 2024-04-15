@@ -10,6 +10,7 @@ class CursoSerializer(serializers.ModelSerializer):
         fields = [
             "id",
             "nome",
+            "validade",
             "users",
         ]
         extra_kwargs = {
@@ -23,15 +24,3 @@ class CursoSerializer(serializers.ModelSerializer):
                 ],
             }
         }
-
-    def update(
-            self, instance: Curso, validated_data: dict
-            ) -> Curso:
-        if validated_data.get("user"):
-            user = validated_data.pop("user")
-            instance.users.add(user)
-        else:
-            for key, value in validated_data.items():
-                setattr(instance, key, value)
-        instance.save()
-        return instance

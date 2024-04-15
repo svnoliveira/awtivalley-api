@@ -2,14 +2,18 @@ from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 from .models import User
 from licencas_medicas.models import Licenca_medica
-from cursos.serializers import CursoSerializer
+from user_curso.serializers import UserCursoSerializer
 from especialidades.serializers import EspecialidadeSerializer
 from registros_de_ponto.serializers import RegistroSerializer
 from licencas_medicas.serializers import Licenca_medicaSerializer
 
 
 class UserSerializer(serializers.ModelSerializer):
-    cursos = CursoSerializer(many=True, read_only=True)
+    cursos = UserCursoSerializer(
+        source='usercurso_set',
+        many=True,
+        read_only=True
+    )
     especialidades = EspecialidadeSerializer(many=True, read_only=True)
     registros_de_ponto = RegistroSerializer(many=True, read_only=True)
     licenca_medica = Licenca_medicaSerializer()
