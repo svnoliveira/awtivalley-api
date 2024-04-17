@@ -74,9 +74,10 @@ class UserSerializer(serializers.ModelSerializer):
     def update(self, instance: User, validated_data: dict) -> User:
         licenca_data = validated_data.pop("licenca_medica", None)
         if licenca_data is not None:
-            licenca_medica = Licenca_medica(**licenca_data)
+            licenca_medica = instance.licenca_medica
+            for field, value in licenca_data.items():
+                setattr(licenca_medica, field, value)
             licenca_medica.save()
-            instance.licenca_medica = licenca_medica
         if validated_data.get("curso"):
             curso = validated_data.pop("curso")
             if curso in instance.cursos.all():
