@@ -69,6 +69,8 @@ MY_APPS = [
     "licencas_medicas",
     "registros_de_ponto",
     "user_curso",
+    "produtos",
+    "movimentacoes",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + MY_APPS
